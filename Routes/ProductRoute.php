@@ -4,6 +4,7 @@ require_once "../Controller/ProductController.php";
 $routes = [
     '/products' => ['controller' => 'ProductController', 'action' => 'getProducts'],
     '/add-product' => ['controller' => 'ProductController', 'action' => 'addProduct'],
+    '/update-product' => ['controller' => 'ProductController', 'action' => 'updateProduct'],
 ];
 
 $requestUri = $_REQUEST('REQUEST_URI');

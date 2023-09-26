@@ -10,9 +10,9 @@ class ProductService
         $this->productRepository = ProductRepository::getInstance();
     }
 
-    public function addProduct($title, $category, $price, $desc, $stock)
+    public function addProduct($type, $title, $category, $price, $desc, $stock)
     {
-        $product = $this->productRepository->create($title, $category, $price, $desc, $stock);
+        $product = $this->productRepository->create($type, $title, $category, $price, $desc, $stock);
     }
 
     public function getProducts()
