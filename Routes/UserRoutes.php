@@ -4,6 +4,7 @@ require_once "../Controller/UserController.php";
 $routes = [
     '/register' => ['controller' => 'UserController', 'action' => 'register'],
     '/logIn' => ['controller' => 'UserController', 'action' => 'logIn'],
+    '/add-observer' => ['controller' => 'UserController', 'action' => 'addObserver'],
 ];
 
 $requestUri = $_REQUEST('REQUEST_URI');

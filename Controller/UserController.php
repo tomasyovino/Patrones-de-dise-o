@@ -5,13 +5,18 @@ class UserController
 {
     private $userService = new UserService();
 
-    public function register($name, $email, $password)
+    public function register($name, $email, $phoneNumber, $password, $subscribed)
     {
-        $this->userService->register($name, $email, $password);
+        $this->userService->register($name, $email, $phoneNumber, $password, $subscribed);
     }
 
     public function logIn($email, $password)
     {
         $this->userService->logIn($email, $password);
+    }
+
+    public function addObserver($id) 
+    {
+        $this->userService->addObserver($id);
     }
 }

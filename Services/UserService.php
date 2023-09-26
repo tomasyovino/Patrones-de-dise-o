@@ -10,14 +10,14 @@ class UserService
         $this->userRepository = UserRepository::getInstance();
     }
 
-    public function register($name, $email, $password)
+    public function register($name, $email, $phoneNumber, $password, $subscribed)
     {
-        $user = $this->userRepository->create($name, $email, $password);
+        $user = $this->userRepository->create($name, $email, $phoneNumber, $password, $subscribed);
     }
 
     public function logIn($email, $password)
     {
-        $userExist = $this->userRepository->find($email);
+        $userExist = $this->userRepository->findByParam($email);
         if (!$userExist) {
             return "El email ingresado no es válido";
         }
@@ -27,5 +27,19 @@ class UserService
         }
 
         return $userExist; // Generar lógica de ingreso de sesión y retornar
+    }
+
+    public function addObserver($id)
+    {
+        $user = $this->userRepository->find($id);
+        $user->subscribed = true;
+        $updatedUser = $this->userRepository->update($id, $user);
+        return $updatedUser;
+    }
+
+    public function findObservers() {
+        $subscribed = true;
+        $users = $this->userRepository->findByParam($subscribed);
+        return $users;
     }
 }

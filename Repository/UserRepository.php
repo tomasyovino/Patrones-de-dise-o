@@ -13,12 +13,22 @@ class UserRepository
         return self::$instance;
     }
 
-    public function create($name, $email, $password)
+    public function create($name, $email, $phoneNumber, $password, $subscribed)
     {
-        return new User($name, $email, $password);
+        return new User($name, $email, $phoneNumber, $password, $subscribed);
     }
 
-    public function find($email)
+    public function find($id)
+    {
+        return; // Consulta a la base de datos
+    }
+
+    public function findByParam($param)
+    {
+        return; // Consulta a la base de datos
+    }
+
+    public function update($id, $obj) 
     {
         return; // Consulta a la base de datos
     }
